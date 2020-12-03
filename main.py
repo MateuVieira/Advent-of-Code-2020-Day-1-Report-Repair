@@ -17,11 +17,13 @@ def read_file(filename):
   return content
 
 def find_sum_equal_to(sum_total, data):
-  for item in data:
-    difference_value = sum_total - item
+  for index_one, value_one in enumerate(data):
+    for index_two, value_two in enumerate(data):
+      if index_one != index_two:
+        difference_value = sum_total - value_one - value_two
 
-    if difference_value in data:
-      return difference_value * item
+        if difference_value in data:
+          return difference_value * value_one * value_two
 
   return 0
 
